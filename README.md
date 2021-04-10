@@ -2,11 +2,13 @@
 
 by Vladimir Jankovic
 
+Read more about this project in my article [here](https://doctypeadventures.netlify.app/post/my-open-source-universal-form).
+
 This is universal, customizable form with field validation written in React with Material UI library. Main features are:
 
-- Two possible types of validation - required field and regex validation.
+- Two possible types of validation - required field and RegEx validation.
 - 7 types of input fields including: Slider, Date/Time and Switch fields.
-- Total modularity.
+- Total modularity. You can use it any way you want in your React/Material-UI projects.
 - You can even loop over your form definition and display each input field with automatic validation and state-controlled value.
 
 ## Dependencies
@@ -17,7 +19,7 @@ The only dependency is Material Ui library, so you must have it (already or) ins
 
 ## Demo Installation
 
-This is not npm package, so you can not install it with (like) `npm install material-ui-react-universal-form`. For now, you must unpack this project to any folder, do `npm install` to install dependencies and thats it. Start the project with "npm start", and check out the demo files: `CustomForm.js`, `LoopForm.js` and `StructuredForm.js`.
+This is not npm package, so you can not install it with (like) `npm install material-ui-react-universal-form`. For now, you must unpack this project to any folder, do `npm install` to install dependencies and thats it. Start the project with "npm start", and check out the demo files: `CustomForm.js`, `LoopForm.js` and `StructuredForm.js`. You can use any part of the code in your project(s) and change it at your will to better fit your custom design or code-flow.
 
 PLEASE NOTE: You must have Node.js installed on your computer.
 
