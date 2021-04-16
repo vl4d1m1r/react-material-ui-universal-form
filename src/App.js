@@ -5,7 +5,7 @@ import { useStyles } from "./assets/styles/app.js";
 
 import CustomForm from "./components/CustomForm";
 import LoopForm from "./components/LoopForm";
-import StructuredForm from "./components/StructuredForm";
+import NoGridForm from "./components/NoGridForm";
 
 function App() {
   const classes = useStyles();
@@ -18,13 +18,13 @@ function App() {
           <br></br>
           <NavLink to='/custom-form'>Custom Form</NavLink>
           <br></br>
-          <NavLink to='/structured-form'>Structured Form</NavLink>
+          <NavLink to='/no-grid-form'>No-grid Form</NavLink>
         </Box>
         <Switch>
           <Route exact path='/' component={LoopForm} />
           <Route exact path='/loop-form' component={LoopForm} />
           <Route exact path='/custom-form' component={CustomForm} />
-          <Route exact path='/structured-form' component={StructuredForm} />
+          <Route exact path='/no-grid-form' component={NoGridForm} />
         </Switch>
       </Container>
     </BrowserRouter>

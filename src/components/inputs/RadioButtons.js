@@ -31,7 +31,9 @@ function CheckBox(props) {
             );
           })}
         </RadioGroup>
-        <FormHelperText>{item.data.helperText}</FormHelperText>
+        {item.data.helperText && (
+          <FormHelperText>{item.data.helperText}</FormHelperText>
+        )}
       </FormControl>
     </Box>
   );

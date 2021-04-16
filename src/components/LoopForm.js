@@ -5,6 +5,7 @@ import useForm from "../hooks/useForm.js";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import Grid from "@material-ui/core/Grid";
 
 import Text from "./inputs/Text";
 import Select from "./inputs/Select";
@@ -44,24 +45,30 @@ function LoopForm() {
     <Card style={{ width: "50%" }}>
       <CardContent>
         <form noValidate>
-          <Typography gutterBottom>"Loop" Form</Typography>
-          {Object.keys(formData).map((objectKey) => {
-            const Input = inputFields[formData[objectKey].type];
-            return (
-              <Input
-                key={formData[objectKey].name}
-                item={{ data: formData[objectKey], actions }}
-              />
-            );
-          })}
-          <Button
-            onClick={() => submitForm()}
-            color='primary'
-            variant='contained'
-            fullWidth
-          >
-            Submit
-          </Button>
+          <Grid container spacing={2}>
+            <Typography>"Loop" Form</Typography>
+            {Object.keys(formData).map((objectKey) => {
+              const Input = inputFields[formData[objectKey].type];
+              return (
+                <Grid item xs={12}>
+                  <Input
+                    key={formData[objectKey].name}
+                    item={{ data: formData[objectKey], actions }}
+                  />
+                </Grid>
+              );
+            })}
+            <Grid item xs={12}>
+              <Button
+                onClick={() => submitForm()}
+                color='primary'
+                variant='contained'
+                fullWidth
+              >
+                Submit
+              </Button>
+            </Grid>
+          </Grid>
         </form>
       </CardContent>
     </Card>
