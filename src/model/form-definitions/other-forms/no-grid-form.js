@@ -56,4 +56,31 @@ export const formDefinition = {
     size: "medium", // "medium","small"
     className: "height-select-custom-class",
   },
+  // MULTI SELECT with margin: "normal"
+  favoriteNames: {
+    // REQUIRED
+    name: "favoriteNames",
+    type: "multiSelect",
+    label: "What is/are your favorite name/s?",
+    placeholder: "Pick up your favorite name/s",
+    // options: ["John", "George", "Paul", "Ringo"],
+    options: [
+      { id: 1, name: "Oscar" },
+      { id: 2, name: "John" },
+      { id: 3, name: "Robert" },
+      { id: 4, name: "Michael" },
+      { id: 5, name: "Peter" },
+      { id: 6, name: "Parker" },
+    ], // options MUST have name key among the others
+    // OPTIONAL
+    required: true,
+    value: [],
+    error: false,
+    helperText: "",
+    variant: "outlined", // "filled","outlined","standard"
+    margin: "normal", // "dense","none","normal"
+    fullWidth: true,
+    size: "medium", // "medium","small"
+    className: "favorite-names-multi-select-custom-class",
+  },
 };

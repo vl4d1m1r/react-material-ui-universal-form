@@ -5,8 +5,16 @@ const useForm = (formDefinition) => {
 
   function updateSliderValue(name, data) {
     setFormData((prevState) => {
-      const nextState = prevState;
+      const nextState = JSON.parse(JSON.stringify(prevState));
       nextState[name].value = data;
+      return { ...nextState };
+    });
+  }
+
+  function updateMultiSelectValue(name, value) {
+    setFormData((prevState) => {
+      const nextState = JSON.parse(JSON.stringify(prevState));
+      nextState[name].value = value;
       return { ...nextState };
     });
   }
@@ -14,7 +22,7 @@ const useForm = (formDefinition) => {
   function updateFieldValue(e) {
     const { name, value, checked, type } = e.target;
     setFormData((prevState) => {
-      const nextState = prevState;
+      const nextState = JSON.parse(JSON.stringify(prevState));
       if (type === "checkbox") {
         nextState[name].checked = checked;
         return { ...nextState };
@@ -28,7 +36,7 @@ const useForm = (formDefinition) => {
     const { name } = e.target;
     const { error, helperText } = validateField(name);
     setFormData((prevState) => {
-      const nextState = prevState;
+      const nextState = JSON.parse(JSON.stringify(prevState));
       nextState[name].error = error;
       nextState[name].helperText = helperText;
       return { ...nextState };
@@ -55,7 +63,10 @@ const useForm = (formDefinition) => {
 
   function validateField(name) {
     const isFieldRequired = formData[name].required;
-    const isFieldEmpty = formData[name].value === "";
+    const isFieldEmpty =
+      formData[name].value === "" ||
+      formData[name].value === 0 ||
+      formData[name].value.length === 0;
     let patternMatched = true;
     if (formData[name].pattern) {
       patternMatched = formData[name].value.match(formData[name].pattern);
@@ -75,6 +86,7 @@ const useForm = (formDefinition) => {
 
   const formActions = {
     onChange: updateFieldValue,
+    onMultiSelectChange: updateMultiSelectValue,
     onBlur: updateFieldValidation,
     onSlide: updateSliderValue,
     validateForm,

@@ -93,7 +93,34 @@ export const formDefinition = {
     size: "medium", // "medium","small"
     className: "city-select-custom-class",
   },
-  // 4. SWITCHER
+  // 4. MULTI SELECT
+  // NOTE: Options MUST have NAME field (and any other field you want)
+  favoriteAnimals: {
+    // REQUIRED
+    name: "favoriteAnimals",
+    type: "multiSelect",
+    label: "What is/are your favorite animal/s?",
+    placeholder: "Pick up your favorite animal/s",
+    options: [
+      { id: 1, name: "Dog" },
+      { id: 2, name: "Cat" },
+      { id: 3, name: "Eagle" },
+      { id: 4, name: "Dolphin" },
+      { id: 5, name: "Duck" },
+      { id: 6, name: "Horse" },
+    ], // options MUST have name key among the others
+    // OPTIONAL
+    required: true,
+    value: [],
+    error: false,
+    helperText: "",
+    variant: "outlined", // "filled","outlined","standard"
+    margin: "none", // "dense","none","normal"
+    fullWidth: true,
+    size: "medium", // "medium","small"
+    className: "favorite-animals-multi-select-custom-class",
+  },
+  // 5. SWITCHER
   music: {
     // REQUIRED
     name: "music",
@@ -104,7 +131,7 @@ export const formDefinition = {
     color: "secondary", // "default","primary","secondary"
     className: "music-switch-custom-class",
   },
-  // 5. DATE/TIME
+  // 6. DATE/TIME
   date: {
     // REQUIRED
     name: "date",
@@ -121,7 +148,7 @@ export const formDefinition = {
     size: "medium", // "medium","small"
     className: "date-time-custom-class",
   },
-  // 6. CHECKBOX
+  // 7. CHECKBOX
   auth: {
     // REQUIRED
     name: "auth",
@@ -132,7 +159,7 @@ export const formDefinition = {
     color: "secondary", // "default","primary","secondary"
     className: "auth-select-custom-class",
   },
-  // 7. SLIDER
+  // 8. SLIDER
   love: {
     // REQUIRED
     name: "love",

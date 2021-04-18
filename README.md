@@ -7,19 +7,21 @@ Read more about this project in my article [here](https://doctypeadventures.netl
 This is universal, customizable form with field validation written in React with Material UI library. Main features are:
 
 - Two possible types of validation - required field and RegEx validation.
-- 7 types of input fields including: Slider, Date/Time and Switch fields.
+- 8 types of input fields including: Slider, Date/Time, Multi-select and Switch fields.
 - Total modularity. You can use it any way you want in your React/Material-UI projects.
-- You can even loop over your form definition and display each input field with automatic validation and state-controlled value.
+- You can even loop through your form definition and display each input field with automatic validation and state-controlled value.
 
 ## Dependencies
 
 The only dependency is Material Ui library, so you must have it (already or) installed on your project:
 
 `npm install @material-ui/core`
+`npm install @material-ui/icon`
+`npm install @material-ui/lab`
 
 ## Demo Installation
 
-This is not npm package, so you can not install it with (like) `npm install material-ui-react-universal-form`. For now, you must unpack this project to any folder, do `npm install` to install dependencies and thats it. Start the project with "npm start", and check out the demo files: `CustomForm.js`, `LoopForm.js` and `StructuredForm.js`. You can use any part of the code in your project(s) and change it at your will to better fit your custom design or code-flow.
+This is not npm package, so you can not install it with (like) `npm install material-ui-react-universal-form`. For now, you must unpack this project to any folder, do `npm install` to install dependencies and thats it. Start the project with "npm start", and check out the demo files: `CustomForm.js`, `LoopForm.js` and `StructuredForm.js`. You can chop any part of the code and use it in your project(s) and change it at your will to better fit your custom design or code-flow.
 
 PLEASE NOTE: You must have Node.js installed on your computer.
 
@@ -31,13 +33,13 @@ There are three major parts of this universal form:
 
 2. Form hook (useForm.js) located in './hooks'.
 
-3. Form definition. Demo form definition is located in './model/form-definitions'.
+3. Form definition(s). Demo form definition with all "unique" input fields is located in './model/form-definitions/form.js'.
 
 As I said, this is not the npm package. Check out the demo files and use modules and hook however you like. One of the ways you can use this universal form is:
 
-- Copy all input field modules ('./components/inputs') in your project.
+- Copy all input field modules ('./components/inputs') to your project.
 
-- Copy form hook (useForm.js) located in './hooks' in your project.
+- Copy form hook (useForm.js) located in './hooks' to your project.
 
 - Make form definition.
 
@@ -50,8 +52,8 @@ As I said, this is not the npm package. Check out the demo files and use modules
 ```
 [name]: {
   // REQUIRED
-  name: String,
-  type: String,
+  name: [name],
+  type: "text",
   label: String,
   // OPTIONAL
   required: Boolean,
@@ -74,8 +76,8 @@ As I said, this is not the npm package. Check out the demo files and use modules
 ```
 [name]: {
   // REQUIRED
-  name: String,
-  type: String,
+  name: [name],
+  type: "select",
   label: String,
   options: Array,
   // OPTIONAL
@@ -91,13 +93,36 @@ As I said, this is not the npm package. Check out the demo files and use modules
 }
 ```
 
-3. RADIO
+3. MULTI SELECT
 
 ```
 [name]: {
   // REQUIRED
-  name: String,
-  type: String,
+  name: [name],
+  type: "multiSelect",
+  label: String,
+  placeholder: String,
+  options: [{name: string}], // options MUST have name key (among the others)
+  // OPTIONAL
+  required: Boolean,
+  value: Array,
+  error: Boolean,
+  helperText: String,
+  variant: String, // "filled","outlined","standard"
+  margin: String, // "dense","none","normal"
+  fullWidth: Boolean,
+  size: String, // "medium","small"
+  className: String,
+}
+```
+
+4. RADIO
+
+```
+[name]: {
+  // REQUIRED
+  name: [name],
+  type: "radio",
   label: String,
   options: Array,
   // OPTIONAL
@@ -109,13 +134,13 @@ As I said, this is not the npm package. Check out the demo files and use modules
 }
 ```
 
-4. SWITCH
+5. SWITCH
 
 ```
 [name]: {
   // REQUIRED
-  name: String,
-  type: String,
+  name: [name],
+  type: "switch",
   label: String,
   checked: Boolean,
   // OPTIONAL
@@ -124,13 +149,13 @@ As I said, this is not the npm package. Check out the demo files and use modules
 }
 ```
 
-5. DATE/TIME
+6. DATE/TIME
 
 ```
 [name]: {
   // REQUIRED
-  name: String,
-  type: String,
+  name: [name],
+  type: "date",
   label: String,
   // OPTIONAL
   required: Boolean,
@@ -145,13 +170,13 @@ As I said, this is not the npm package. Check out the demo files and use modules
 }
 ```
 
-6. CHECKBOX
+7. CHECKBOX
 
 ```
 [name]: {
   // REQUIRED
-  name: String,
-  type: String,
+  name: [name],
+  type: "checkbox",
   label: String,
   checked: Boolean,
   // OPTIONAL
@@ -160,28 +185,13 @@ As I said, this is not the npm package. Check out the demo files and use modules
 }
 ```
 
-6. CHECKBOX
+8. SLIDER
 
 ```
 [name]: {
   // REQUIRED
-  name: String,
-  type: String,
-  label: String,
-  checked: Boolean,
-  // OPTIONAL
-  color: String, // "default","primary","secondary"
-  className: String,
-}
-```
-
-7. SLIDER
-
-```
-[name]: {
-  // REQUIRED
-  name: String,
-  type: String,
+  name: [name],
+  type: "slider",
   label: String,
   value: Number,
   min: Number,
