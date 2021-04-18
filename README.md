@@ -99,7 +99,7 @@ As I said, this is not the npm package. Check out the demo files and use modules
 [name]: {
   // REQUIRED
   name: [name],
-  type: "autocompleteMultiSelect",
+  type: "autocompleteMs",
   label: String,
   placeholder: String,
   options: [{name: string}], // options MUST have name key (among the others)

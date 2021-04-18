@@ -11,7 +11,7 @@ import normalize from "./normalize";
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-function AutocompleteMultiSelect(props) {
+function AutocompleteMs(props) {
   const item = normalize(props.item);
 
   return (
@@ -26,8 +26,9 @@ function AutocompleteMultiSelect(props) {
       getOptionSelected={(option, value) => option.name === value.name}
       getOptionLabel={(option) => option.name}
       onChange={(event, value) =>
-        item.formActions.onMultiSelectChange(item.formData.name, value)
+        item.formActions.onNamedChange(item.formData.name, value)
       }
+      onBlur={() => item.formActions.onNamedBlur(item.formData.name)}
       renderOption={(option, { selected }) => (
         <React.Fragment>
           <Checkbox
@@ -56,4 +57,4 @@ function AutocompleteMultiSelect(props) {
   );
 }
 
-export default AutocompleteMultiSelect;
+export default AutocompleteMs;

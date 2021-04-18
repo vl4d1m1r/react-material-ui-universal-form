@@ -56,11 +56,11 @@ export const formDefinition = {
     size: "medium", // "medium","small"
     className: "height-select-custom-class",
   },
-  // MULTI SELECT with margin: "normal"
+  // AUTOCOMPLETE MULTI SELECT with margin: "normal"
   favoriteNames: {
     // REQUIRED
     name: "favoriteNames",
-    type: "autocompleteMultiSelect",
+    type: "autocompleteMs",
     label: "What is/are your favorite name/s?",
     placeholder: "Pick up your favorite name/s",
     // options: ["John", "George", "Paul", "Ringo"],

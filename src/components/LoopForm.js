@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 // Components
 import Text from "./inputs/Text";
 import Select from "./inputs/Select";
-import AutocompleteMultiSelect from "./inputs/AutocompleteMultiSelect";
+import AutocompleteMs from "./inputs/AutocompleteMs";
 import DateTime from "./inputs/DateTime";
 import CheckBox from "./inputs/CheckBox";
 import RadioButtons from "./inputs/RadioButtons";
@@ -22,7 +22,7 @@ const inputFields = {
   text: Text,
   password: Text,
   select: Select,
-  autocompleteMultiSelect: AutocompleteMultiSelect,
+  autocompleteMs: AutocompleteMs,
   checkbox: CheckBox,
   switch: Switcher,
   date: DateTime,

@@ -93,12 +93,12 @@ export const formDefinition = {
     size: "medium", // "medium","small"
     className: "city-select-custom-class",
   },
-  // 4. MULTI SELECT
+  // 4. AUTOCOMPLETE MULTI SELECT
   // NOTE: Options MUST have NAME field (and any other field you want)
   favoriteAnimals: {
     // REQUIRED
     name: "favoriteAnimals",
-    type: "autocompleteMultiSelect",
+    type: "autocompleteMs",
     label: "What is/are your favorite animal/s?",
     placeholder: "Pick up your favorite animal/s",
     options: [

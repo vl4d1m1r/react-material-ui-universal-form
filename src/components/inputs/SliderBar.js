@@ -14,8 +14,8 @@ function SliderBar(props) {
         max={item.formData.max}
         step={item.formData.step}
         value={item.formData.value}
-        onChange={(e, data) =>
-          item.formActions.onSlide(item.formData.name, data)
+        onChange={(e, value) =>
+          item.formActions.onNamedChange(item.formData.name, value)
         }
         valueLabelDisplay={item.formData.valueLabelDisplay}
         className={item.formData.className}

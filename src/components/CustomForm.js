@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 // Components
 import Text from "./inputs/Text";
 import Select from "./inputs/Select";
-import AutocompleteMultiSelect from "./inputs/AutocompleteMultiSelect";
+import AutocompleteMs from "./inputs/AutocompleteMs";
 import DateTime from "./inputs/DateTime";
 import CheckBox from "./inputs/CheckBox";
 import RadioButtons from "./inputs/RadioButtons";
@@ -48,7 +48,7 @@ function StructuredForm() {
               <Text item={{ formData: formData["username"], formActions }} />
             </Grid>
             <Grid item xs={12}>
-              <AutocompleteMultiSelect
+              <AutocompleteMs
                 item={{ formData: formData["favoriteAnimals"], formActions }}
               />
             </Grid>

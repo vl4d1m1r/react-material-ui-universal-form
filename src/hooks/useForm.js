@@ -1,17 +1,12 @@
 import { useState } from "react";
+const requiredHelperText = "This field is required!";
+const regexHelperText = "Please enter the correct value!";
 
 const useForm = (formDefinition) => {
   const [formData, setFormData] = useState(formDefinition);
 
-  function updateSliderValue(name, data) {
-    setFormData((prevState) => {
-      const nextState = JSON.parse(JSON.stringify(prevState));
-      nextState[name].value = data;
-      return { ...nextState };
-    });
-  }
-
-  function updateMultiSelectValue(name, value) {
+  // Update values for: Slider and Autocomplete
+  function updateNamedValue(name, value) {
     setFormData((prevState) => {
       const nextState = JSON.parse(JSON.stringify(prevState));
       nextState[name].value = value;
@@ -19,7 +14,19 @@ const useForm = (formDefinition) => {
     });
   }
 
-  function updateFieldValue(e) {
+  // Validate fields for: Slider and Autocomplete
+  function updateNamedValidation(name) {
+    const { error, helperText } = validateField(name);
+    setFormData((prevState) => {
+      const nextState = JSON.parse(JSON.stringify(prevState));
+      nextState[name].error = error;
+      nextState[name].helperText = helperText;
+      return { ...nextState };
+    });
+  }
+
+  // Update values for event managed input fields
+  function updateValue(e) {
     const { name, value, checked, type } = e.target;
     setFormData((prevState) => {
       const nextState = JSON.parse(JSON.stringify(prevState));
@@ -32,7 +39,8 @@ const useForm = (formDefinition) => {
     });
   }
 
-  function updateFieldValidation(e) {
+  // Validate event managed input fields
+  function updateValidation(e) {
     const { name } = e.target;
     const { error, helperText } = validateField(name);
     setFormData((prevState) => {
@@ -43,16 +51,17 @@ const useForm = (formDefinition) => {
     });
   }
 
+  // Validate whole form
   function validateForm() {
     let formIsValid = true;
-    const keys = Object.keys(formData).map((objectKey) => {
-      return objectKey;
+    const names = Object.keys(formData).map((name) => {
+      return name;
     });
-    const formDataValidated = keys.reduce((accumulator, key) => {
-      accumulator[key] = formData[key];
-      const { error, helperText } = validateField(key);
-      accumulator[key].error = error;
-      accumulator[key].helperText = helperText;
+    const formDataValidated = names.reduce((accumulator, name) => {
+      accumulator[name] = formData[name];
+      const { error, helperText } = validateField(name);
+      accumulator[name].error = error;
+      accumulator[name].helperText = helperText;
       if (error) {
         formIsValid = false;
       }
@@ -61,6 +70,7 @@ const useForm = (formDefinition) => {
     return { formIsValid, formDataValidated };
   }
 
+  // Validate single input field
   function validateField(name) {
     const isFieldRequired = formData[name].required;
     const isFieldEmpty =
@@ -72,10 +82,10 @@ const useForm = (formDefinition) => {
       patternMatched = formData[name].value.match(formData[name].pattern);
     }
     if (isFieldRequired && isFieldEmpty) {
-      return { error: true, helperText: "This field is required!" };
+      return { error: true, helperText: requiredHelperText };
     }
     if (!patternMatched) {
-      return { error: true, helperText: "Please enter the correct value!" };
+      return { error: true, helperText: regexHelperText };
     }
     return { error: false, helperText: "" };
   }
@@ -85,10 +95,10 @@ const useForm = (formDefinition) => {
   }
 
   const formActions = {
-    onChange: updateFieldValue,
-    onMultiSelectChange: updateMultiSelectValue,
-    onBlur: updateFieldValidation,
-    onSlide: updateSliderValue,
+    onChange: updateValue,
+    onNamedChange: updateNamedValue,
+    onBlur: updateValidation,
+    onNamedBlur: updateNamedValidation,
     validateForm,
     resetForm,
   };
