@@ -11,15 +11,15 @@ function CheckBox(props) {
       <FormControlLabel
         control={
           <Switch
-            name={item.data.name}
-            id={item.data.name}
-            checked={item.data.checked}
-            onChange={item.actions.onChange}
-            color={item.data.color}
-            className={item.data.className}
+            name={item.formData.name}
+            id={item.formData.name}
+            checked={item.formData.checked}
+            onChange={item.formActions.onChange}
+            color={item.formData.color}
+            className={item.formData.className}
           />
         }
-        label={item.data.label}
+        label={item.formData.label}
       />
     </Box>
   );

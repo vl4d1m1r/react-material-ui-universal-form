@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-const useForm = (initialFormDefinition) => {
-  const [formData, setFormData] = useState(initialFormDefinition);
+const useForm = (formDefinition) => {
+  const [formData, setFormData] = useState(formDefinition);
 
-  const updateSliderValue = (name, data) => {
+  function updateSliderValue(name, data) {
     setFormData((prevState) => {
       const nextState = prevState;
       nextState[name].value = data;
       return { ...nextState };
     });
-  };
+  }
 
   function updateFieldValue(e) {
     const { name, value, checked, type } = e.target;
@@ -24,7 +24,7 @@ const useForm = (initialFormDefinition) => {
     });
   }
 
-  const updateFieldValidation = (e) => {
+  function updateFieldValidation(e) {
     const { name } = e.target;
     const { error, helperText } = validateField(name);
     setFormData((prevState) => {
@@ -33,9 +33,9 @@ const useForm = (initialFormDefinition) => {
       nextState[name].helperText = helperText;
       return { ...nextState };
     });
-  };
+  }
 
-  const validateForm = () => {
+  function validateForm() {
     let formIsValid = true;
     const keys = Object.keys(formData).map((objectKey) => {
       return objectKey;
@@ -51,9 +51,9 @@ const useForm = (initialFormDefinition) => {
       return accumulator;
     }, {});
     return { formIsValid, formDataValidated };
-  };
+  }
 
-  const validateField = (name) => {
+  function validateField(name) {
     const isFieldRequired = formData[name].required;
     const isFieldEmpty = formData[name].value === "";
     let patternMatched = true;
@@ -67,16 +67,21 @@ const useForm = (initialFormDefinition) => {
       return { error: true, helperText: "Please enter the correct value!" };
     }
     return { error: false, helperText: "" };
-  };
+  }
 
-  const actions = {
+  function resetForm(initialFormState) {
+    return JSON.parse(JSON.stringify(initialFormState));
+  }
+
+  const formActions = {
     onChange: updateFieldValue,
     onBlur: updateFieldValidation,
     onSlide: updateSliderValue,
     validateForm,
+    resetForm,
   };
 
-  return { formData, setFormData, actions };
+  return { formData, setFormData, formActions };
 };
 
 export default useForm;

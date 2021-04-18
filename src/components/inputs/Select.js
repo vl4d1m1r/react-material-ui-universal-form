@@ -7,24 +7,24 @@ function Select(props) {
   const item = normalize(props.item);
   return (
     <TextField
-      id={item.data.name}
-      name={item.data.name}
-      type={item.data.type}
-      label={item.data.label}
-      required={item.data.required}
-      value={item.data.value}
-      error={item.data.error}
-      helperText={item.data.helperText}
-      onChange={item.actions.onChange}
-      onBlur={item.actions.onBlur}
-      variant={item.data.variant}
-      margin={item.data.margin}
-      fullWidth={item.data.fullWidth}
-      size={item.data.size}
-      className={item.data.className}
+      id={item.formData.name}
+      name={item.formData.name}
+      type={item.formData.type}
+      label={item.formData.label}
+      required={item.formData.required}
+      value={item.formData.value}
+      error={item.formData.error}
+      helperText={item.formData.helperText}
+      onChange={item.formActions.onChange}
+      onBlur={item.formActions.onBlur}
+      variant={item.formData.variant}
+      margin={item.formData.margin}
+      fullWidth={item.formData.fullWidth}
+      size={item.formData.size}
+      className={item.formData.className}
       select
     >
-      {item.data.options.map((option) => {
+      {item.formData.options.map((option) => {
         return (
           <MenuItem key={option} value={option}>
             {option}

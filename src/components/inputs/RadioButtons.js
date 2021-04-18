@@ -11,16 +11,16 @@ import normalize from "./normalize";
 function CheckBox(props) {
   const item = normalize(props.item);
   return (
-    <Box className={item.data.className}>
-      <FormControl component='fieldset' error={item.data.error}>
-        <FormLabel component='legend'>{item.data.label}</FormLabel>
+    <Box className={item.formData.className}>
+      <FormControl component='fieldset' error={item.formData.error}>
+        <FormLabel component='legend'>{item.formData.label}</FormLabel>
         <RadioGroup
-          name={item.data.name}
-          value={item.data.value}
-          onChange={item.actions.onChange}
-          onBlur={item.actions.onBlur}
+          name={item.formData.name}
+          value={item.formData.value}
+          onChange={item.formActions.onChange}
+          onBlur={item.formActions.onBlur}
         >
-          {item.data.options.map((option) => {
+          {item.formData.options.map((option) => {
             return (
               <FormControlLabel
                 key={option.value}
@@ -31,8 +31,8 @@ function CheckBox(props) {
             );
           })}
         </RadioGroup>
-        {item.data.helperText && (
-          <FormHelperText>{item.data.helperText}</FormHelperText>
+        {item.formData.helperText && (
+          <FormHelperText>{item.formData.helperText}</FormHelperText>
         )}
       </FormControl>
     </Box>

@@ -6,17 +6,19 @@ function SliderBar(props) {
   const item = props.item;
   return (
     <React.Fragment>
-      <Typography gutterBottom>{item.data.label}</Typography>
+      <Typography gutterBottom>{item.formData.label}</Typography>
       <Slider
-        id={item.data.name}
-        name={item.data.name}
-        min={item.data.min}
-        max={item.data.max}
-        step={item.data.step}
-        value={item.data.value}
-        onChange={(e, data) => item.actions.onSlide(item.data.name, data)}
-        valueLabelDisplay={item.data.valueLabelDisplay}
-        className={item.data.className}
+        id={item.formData.name}
+        name={item.formData.name}
+        min={item.formData.min}
+        max={item.formData.max}
+        step={item.formData.step}
+        value={item.formData.value}
+        onChange={(e, data) =>
+          item.formActions.onSlide(item.formData.name, data)
+        }
+        valueLabelDisplay={item.formData.valueLabelDisplay}
+        className={item.formData.className}
       />
     </React.Fragment>
   );
