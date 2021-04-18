@@ -63,7 +63,6 @@ export const formDefinition = {
     type: "autocompleteMs",
     label: "What is/are your favorite name/s?",
     placeholder: "Pick up your favorite name/s",
-    // options: ["John", "George", "Paul", "Ringo"],
     options: [
       { id: 1, name: "Oscar" },
       { id: 2, name: "John" },
