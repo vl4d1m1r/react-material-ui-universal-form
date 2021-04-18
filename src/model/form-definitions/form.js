@@ -98,7 +98,7 @@ export const formDefinition = {
   favoriteAnimals: {
     // REQUIRED
     name: "favoriteAnimals",
-    type: "multiSelect",
+    type: "autocompleteMultiSelect",
     label: "What is/are your favorite animal/s?",
     placeholder: "Pick up your favorite animal/s",
     options: [

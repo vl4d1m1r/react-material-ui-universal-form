@@ -11,7 +11,7 @@ import normalize from "./normalize";
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-function MultiSelect(props) {
+function AutocompleteMultiSelect(props) {
   const item = normalize(props.item);
 
   return (
@@ -56,4 +56,4 @@ function MultiSelect(props) {
   );
 }
 
-export default MultiSelect;
+export default AutocompleteMultiSelect;

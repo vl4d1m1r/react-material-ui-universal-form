@@ -7,7 +7,7 @@ Read more about this project in my article [here](https://doctypeadventures.netl
 This is universal, customizable form with field validation written in React with Material UI library. Main features are:
 
 - Two possible types of validation - required field and RegEx validation.
-- 8 types of input fields including: Slider, Date/Time, Multi-select and Switch fields.
+- 8 types of input fields including: Slider, Date/Time, Autocomplete multi-select and Switch fields.
 - Total modularity. You can use it any way you want in your React/Material-UI projects.
 - You can even loop through your form definition and display each input field with automatic validation and state-controlled value.
 
@@ -93,13 +93,13 @@ As I said, this is not the npm package. Check out the demo files and use modules
 }
 ```
 
-3. MULTI SELECT
+3. AUTOCOMPLETE MULTI SELECT
 
 ```
 [name]: {
   // REQUIRED
   name: [name],
-  type: "multiSelect",
+  type: "autocompleteMultiSelect",
   label: String,
   placeholder: String,
   options: [{name: string}], // options MUST have name key (among the others)

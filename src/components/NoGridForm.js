@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 // Components
 import Text from "./inputs/Text";
 import Select from "./inputs/Select";
-import MultiSelect from "./inputs/MultiSelect";
+import AutocompleteMultiSelect from "./inputs/AutocompleteMultiSelect";
 import Button from "@material-ui/core/Button";
 // Hooks and definitions
 import useForm from "../hooks/useForm.js";
@@ -43,7 +43,7 @@ function NoGridForm() {
             <Text item={{ formData: formData["nickname"], formActions }} />
             <Select item={{ formData: formData["height"], formActions }} />
             <Text item={{ formData: formData["pet"], formActions }} />
-            <MultiSelect
+            <AutocompleteMultiSelect
               item={{ formData: formData["favoriteNames"], formActions }}
             />
             <Box mt={2}>

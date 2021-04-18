@@ -60,7 +60,7 @@ export const formDefinition = {
   favoriteNames: {
     // REQUIRED
     name: "favoriteNames",
-    type: "multiSelect",
+    type: "autocompleteMultiSelect",
     label: "What is/are your favorite name/s?",
     placeholder: "Pick up your favorite name/s",
     // options: ["John", "George", "Paul", "Ringo"],
