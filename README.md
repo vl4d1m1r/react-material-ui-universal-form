@@ -29,17 +29,17 @@ PLEASE NOTE: You must have Node.js installed on your computer.
 
 There are three major parts of this universal form:
 
-1. Input field modules, located in './components/inputs'.
+1. Input field modules, located in `./components/inputs`.
 
-2. Form hook (useForm.js) located in './hooks'.
+2. Form hook `useForm.js` located in `./hooks`.
 
-3. Form definition(s). Demo form definition with all "unique" input fields is located in './model/form-definitions/form.js'.
+3. Form definition(s). Demo form definition with all "unique" input fields is located in `./model/form-definitions/form.js`.
 
 As I said, this is not the npm package. Check out the demo files and use modules and hook however you like. One of the ways you can use this universal form is:
 
-- Copy all input field modules ('./components/inputs') to your project.
+- Copy all input field modules from `./components/inputs` to your project.
 
-- Copy form hook (useForm.js) located in './hooks' to your project.
+- Copy form hook `useForm.js` located in `./hooks` to your project.
 
 - Make form definition.
 
